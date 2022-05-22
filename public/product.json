@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "ENGINE DIAGNOSTIC",
+      "price": 300,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "img": "https://i.ibb.co/9rH3Gwt/accessory.webp"
+    },
+    {
+        "id": 2,
+        "name": "WHEEL ALIGNMENT",
+        "price": 100,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "img": "https://i.ibb.co/Pmr2P9W/battery.webp"
+      },
+      {
+        "id": 3,
+        "name": "OIL CHANGING",
+        "price": 300,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "img": "https://i.ibb.co/ZNLssD9/lenses.webp"
+      },
+      {
+        "id": 4,
+        "name": "BRAKE REPARING",
+        "price": 300,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "img": "https://i.ibb.co/72hn228/Lens.webp"
+      },
+      {
+        "id": 5,
+        "name": "WASH AND GLASSING",
+        "price": 300,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "img": "https://i.ibb.co/CmN46sw/tripod.webp"
+      },
+      
+      {
+        "id": 6,
+        "name": "COMPLETE ANALYSIS",
+        "price": 300,
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "img": "https://i.ibb.co/D8h09xQ/battery-cover.png"
+      }
+  ]

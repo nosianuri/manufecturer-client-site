@@ -1,10 +1,12 @@
 import React from 'react';
+import FigureButton from '../Shared/FigureButton';
 
 const Contact = () => {
     return (
-        <div className='bg-primary py-14 my-28'>
+        <section className='bg-primary py-14 my-28'>
+            <div className='py-10'>
             <div className='text-center pb-14 text-white'>
-                <p className='text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-accent to-secondary'>
+                <p className='text-xl font-bold text-transparent bg-clip-text bg-white'>
                     Contact Us
                 </p>
                 <h1 className='text-4xl'>Stay connected with us</h1>
@@ -25,9 +27,11 @@ const Contact = () => {
                     placeholder='Your message'
                     rows={6}
                 ></textarea>
-                <button>Submit</button>
+                <FigureButton>Submit</FigureButton>
             </div>
         </div>
+        
+        </section>
     );
 };
 

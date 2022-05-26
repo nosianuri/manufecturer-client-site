@@ -1,51 +1,62 @@
 [
-    {
-      "id": 1,
-      "name": "accessory",
-      "price": 200,
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-      "Quantity": 5,
-      "img": "https://i.ibb.co/9rH3Gwt/accessory.webp"
-    },
-    {
-        "id": 2,
-        "name": "battery",
-        "price": 100,
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        "Quantity": 5,
-        "img": "https://i.ibb.co/Pmr2P9W/battery.webp"
-      },
-      {
-        "id": 3,
-        "name": "Lenses",
-        "price": 80,
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        "Quantity": 5,
-        "img": "https://i.ibb.co/ZNLssD9/lenses.webp"
-      },
-      {
-        "id": 4,
-        "name": "Lens",
-        "price": 150,
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        "Quantity": 5,
-        "img": "https://i.ibb.co/72hn228/Lens.webp"
-      },
-      {
-        "id": 5,
-        "name": "Tripod",
-        "price": 60,
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        "Quantity": 5,
-        "img": "https://i.ibb.co/CmN46sw/tripod.webp"
-      },
-      
-      {
-        "id": 6,
-        "name": "COMPLETE ANALYSIS",
-        "price": 300,
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
-        "Quantity": 5,
-        "img": "https://i.ibb.co/D8h09xQ/battery-cover.png"
-      }
-  ]
+  {
+    "name": "ACCESSORY",
+    "price": 200,
+    "description": "The new 50mm lens is now standard with our Cadet II® enlarger series. Both lenses come complete with jam nut/retaining ring. ",
+    "quantity": 5,
+    "available": 500,
+    "miniquantity": 5,
+    "maxquantity": 50,
+    "img": "https://i.ibb.co/9rH3Gwt/accessory.webp"
+  },
+  {
+    "name": "BATTERY",
+    "price": 100,
+    "description": "All 23C III-XL accept formats up to and including 6x9cm and have ample space on the sturdy 16″x25½” white laminated baseboard. ",
+    "quantity": 5,
+    "available": 450,
+    "miniquantity": 5,
+    "maxquantity": 50,
+    "img": "https://i.ibb.co/Pmr2P9W/battery.webp"
+  },
+  {
+    "name": "LENSES",
+    "price": 80,
+    "description": "These quality lenses designed exclusively by Subaru contain an additional lens element for exceptional sharpness and clarity. ",
+    "quantity": 5,
+    "available": 300,
+    "miniquantity": 5,
+    "maxquantity": 50,
+    "img": "https://i.ibb.co/ZNLssD9/lenses.webp"
+  },
+  {
+    "name": "LENS",
+    "price": 150,
+    "description": " The improved lens design offers professional grade features, yet maintains an affordable price for educational or entry level programs. ",
+    "quantity": 5,
+    "available": 350,
+    "miniquantity": 5,
+    "maxquantity": 50,
+    "img": "https://i.ibb.co/72hn228/Lens.webp"
+  },
+  {
+    "name": "TRIPOD",
+    "price": 300,
+    "description": "The camera platform moves on a single-straight vertical column, aided by a constant force, counter-balanced elevation system. ",
+    "quantity": 5,
+    "available": 500,
+    "miniquantity": 5,
+    "maxquantity": 50,
+    "img": "https://i.ibb.co/CmN46sw/tripod.webp"
+  },
+  {
+    "name": "BATTERY COVER",
+    "price": 60,
+    "description": "Precision design rails made from aluminum extrusion ensure accuracy. Masking blades are detachable for individual arrangement.  ",
+    "quantity": 5,
+    "available": 450,
+    "miniquantity": 5,
+    "maxquantity": 50,
+    "img": "https://i.ibb.co/D8h09xQ/battery-cover.png"
+  }
+]

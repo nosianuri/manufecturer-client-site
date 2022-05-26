@@ -1,0 +1,23 @@
+[
+    {
+        "_id": 1,
+        "name": "Lee Jong Suk",
+       "review": "If a customer buy this product, he choose! He must Love This product.",
+        "location": "Rajshahi",
+        "img": "https://i.ibb.co/n3WsvKd/lee5.png"
+    },
+    {
+        "_id": 2,
+        "name": "Jung Heasok",
+        "review": "I like This equipment very much. These performance are best.",
+        "location": "Dhaka",
+        "img": "https://i.ibb.co/c380cNx/j-hope.png"
+    },
+    {
+        "_id": 3,
+        "name": "Kim Teayung",
+        "review": "These product is do good. I like it .",
+        "location": "Bogura",
+       " img": "https://i.ibb.co/HpDwT3Q/Suga.png"
+    }
+]

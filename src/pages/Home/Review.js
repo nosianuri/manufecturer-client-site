@@ -1,34 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import quote from '../../assets/icon/quote.png';
-import lee from '../../assets/images/Lee jong suk.png';
-import jhope from '../../assets/images/J-hope.png';
-import kim from '../../assets/images/Kim taehyng.png';
 import ReviewDetail from './ReviewDetail';
 
 const Review = () => {
-    const reviews = [
-        {
-            _id: 1,
-            name: 'Lee Jong Suk',
-            review: '',
-            location: 'Rajshahi',
-            img: lee
-        },
-        {
-            _id: 2,
-            name: 'Jung Heasok',
-            review: '',
-            location: 'Dhaka',
-            img: jhope
-        },
-        {
-            _id: 3,
-            name: 'Kim Teayung',
-            review: '',
-            location: 'Bogura',
-            img: kim
-        },
-    ];
+    const [reviews, setReviews] = useState([]);
+
+    useEffect( () =>{
+        fetch('http://localhost:5000/review')
+        .then(res =>res.json())
+        .then(data => setReviews(data))
+      },[]);
+    
+    
 
     return (
         <section>

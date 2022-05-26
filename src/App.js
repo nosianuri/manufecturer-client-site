@@ -17,6 +17,7 @@ import Payment from './pages/Dashboard/Payment';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
+import RequireAdmin from './pages/Login/RequireAdmin';
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
             <Route index element={<MyOrder></MyOrder>}></Route>
             <Route path='review' element={<AddReview></AddReview>}></Route>
             <Route path='profile' element={<MyProfile></MyProfile>}></Route>
-            <Route path='admin' element={<MakeAdmin></MakeAdmin>}></Route>
+            <Route path='admin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
             <Route path='payment/:id' element={<Payment></Payment>}></Route>
           </Route>       
         <Route path='/blog' element={<Blogs />}></Route>        

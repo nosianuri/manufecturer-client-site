@@ -9,8 +9,8 @@ const useCart = () => {
         const storedCart = getStoredCart();
         const savedCart = [];
         const keys = Object.keys(storedCart);
-        
-        fetch('http://localhost:5000/productByKeys', {
+
+        fetch('https://thawing-depths-15200.herokuapp.com/productByKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -19,10 +19,10 @@ const useCart = () => {
         })
             .then(res => res.json())
             .then(services => {
-                
-                for(const id in storedCart){
+
+                for (const id in storedCart) {
                     const addedService = services.find(service => service._id === id);
-                    if(addedService){
+                    if (addedService) {
                         const quantity = storedCart[id];
                         addedService.quantity = quantity;
                         savedCart.push(addedService);

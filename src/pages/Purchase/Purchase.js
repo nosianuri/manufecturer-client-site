@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 import useServiceDetail from '../../hooks/userServiceDetail';
 import { toast } from 'react-toastify';
 
-const Purchase = ({Purchase, setPurchase}) => {
+const Purchase = ({ Purchase, setPurchase }) => {
     // const { _id, name, description, quantity, price} = Purchase;
     const { serviceId } = useParams();
     const [service, setService] = useServiceDetail(serviceId);
@@ -25,59 +25,59 @@ const Purchase = ({Purchase, setPurchase}) => {
             phone: event.target.phone.value
         }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://thawing-depths-15200.herokuapp.com/order', {
             method: 'POST',
-            headers:{
+            headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(order)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data){
-                toast('Your Order is done');
-            }
-            
-            setService();
-        })
-       
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data) {
+                    toast('Your Order is done');
+                }
+
+                setService();
+            })
+
     }
 
     return (
         <section>
-        <h2 className="text-2xl text-center">Please Order: {service}</h2>
+            <h2 className="text-2xl text-center">Please Order: {service}</h2>
             <form onSubmit={handlePlaceOrder} >
-                <div class="hero min-h-screen">
-                
-                    <div class="hero-content">
+                <div className="hero min-h-screen">
 
-                        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        
-                            <div class="card-body">
-                                <div class="form-control">
+                    <div className="hero-content">
+
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
+                            <div className="card-body">
+                                <div className="form-control">
 
                                     <input className='w-100 mb-2' type="text" value={user?.displayName} name='name' placeholder='name' required readOnly disabled />
                                 </div>
-                                <div class="form-control">
+                                <div className="form-control">
 
                                     <input className='w-100 mb-2' type="email" value={user?.email} name='email' placeholder='email' required readOnly disabled />
                                 </div>
-                                <div class="form-control">
+                                <div className="form-control">
 
                                     <input className='w-100 mb-2' type="text" value={service.name} name='service' placeholder='service' required readOnly />
                                 </div>
-                                <div class="form-control">
+                                <div className="form-control">
 
                                     <input className='w-100 mb-2' type="text" name='address' placeholder='address' autoComplete='off' required />
                                 </div>
-                                <div class="form-control">
+                                <div className="form-control">
 
                                     <input className='w-100 mb-2' type="text" name='phone' placeholder='phone' required />
                                 </div>
 
-                                <div class="form-control mt-6">
-                                    <button class="btn btn-primary">Order</button>
+                                <div className="form-control mt-6">
+                                    <button className="btn btn-primary">Order</button>
                                 </div>
                             </div>
                         </div>

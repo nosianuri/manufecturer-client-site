@@ -2,7 +2,7 @@
     {
         "_id": 1,
         "name": "Lee Jong Suk",
-       "review": "If a customer buy this product, he choose! He must Love This product.",
+        "review": "If a customer buy this product, he choose! He must Love This product.",
         "location": "Rajshahi",
         "img": "https://i.ibb.co/n3WsvKd/lee5.png"
     },
@@ -18,6 +18,6 @@
         "name": "Kim Teayung",
         "review": "These product is do good. I like it .",
         "location": "Bogura",
-       " img": "https://i.ibb.co/HpDwT3Q/Suga.png"
+        "img": "https://i.ibb.co/mBFFWnf/lee2.png"
     }
 ]

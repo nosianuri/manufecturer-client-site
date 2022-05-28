@@ -4,7 +4,7 @@ const useServiceDetail = serviceId => {
     const [service, setService] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/service/${serviceId}`;
+        const url = `https://thawing-depths-15200.herokuapp.com/service/${serviceId}`;
         console.log(url);
         fetch(url)
             .then(res => res.json())

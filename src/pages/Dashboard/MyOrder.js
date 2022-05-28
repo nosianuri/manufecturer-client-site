@@ -11,9 +11,9 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`,{
+            fetch(`https://thawing-depths-15200.herokuapp.com/order?email=${user.email}`, {
                 method: 'GET',
-                headers:{
+                headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
@@ -31,44 +31,44 @@ const MyOrder = () => {
                 });
         }
     }, [user]);
-    
+
 
     return (
         <div>
-        <h1> my orders: {orders.length}</h1>
-        <div className="overflow-x-auto">
-            <table className="table w-full">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Product</th>
-                        <th>quantity</th>
-                        <th>Payment</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        orders.map((a, index) => <tr key={a._id}> 
-                            <th>{index + 1}</th>
-                            <td>{a.displayName}</td>
-                            <td>{a.email}</td>
-                            <td>{a.slot}</td>
-                            <td>{a.treatment}</td>
-                            <td>
-                            {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
-                            {(a.price && !a.paid) && <div>
-                                <p><span className='text-success'>Paid</span></p>
-                                <p>Transaction id: <span className='text-success'>{a.transactionId}</span></p>
-                            </div>}
-                            </td>
-                        </tr>)
-                    }
-                </tbody>
-            </table>
+            <h1> my orders: {orders.length}</h1>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Product</th>
+                            <th>quantity</th>
+                            <th>Payment</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            orders.map((a, index) => <tr key={a._id}>
+                                <th>{index + 1}</th>
+                                <td>{a.displayName}</td>
+                                <td>{a.email}</td>
+                                <td>{a.slot}</td>
+                                <td>{a.treatment}</td>
+                                <td>
+                                    {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    {(a.price && !a.paid) && <div>
+                                        <p><span className='text-success'>Paid</span></p>
+                                        <p>Transaction id: <span className='text-success'>{a.transactionId}</span></p>
+                                    </div>}
+                                </td>
+                            </tr>)
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
     );
 };
 

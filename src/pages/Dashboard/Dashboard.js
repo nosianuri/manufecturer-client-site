@@ -23,7 +23,6 @@ const Dashboard = () => {
                     <li className='font-bold'><Link to='/dashboard/profile'>My Profile</Link></li>
                     
                     { admin && <>
-                    <li className='font-bold'><Link to='/dashboard/admin'>Make Admin</Link></li>
                         <li className='font-bold'><Link to='/dashboard/manageOrder'>Manage Order</Link></li>
                         <li className='font-bold'><Link to='/dashboard/addProduct'>Add a product</Link></li>
                         <li className='font-bold'><Link to='/dashboard/admin'>Make Admin</Link></li>

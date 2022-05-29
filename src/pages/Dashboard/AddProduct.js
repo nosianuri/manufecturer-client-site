@@ -7,11 +7,11 @@ import Loading from '../Shared/Loading';
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const {data: services, isLoading} = useQuery('services', () => fetch('http://localhost:5000/service').then(res =>res.json()));
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://thawing-depths-15200.herokuapp.com/service').then(res => res.json()));
 
     const imageStorageKey = '0e111abe7d39827ab6edd78c23158034';
 
-    const onSubmit = async data => {        
+    const onSubmit = async data => {
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
@@ -20,41 +20,41 @@ const AddProduct = () => {
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(result =>{
-            if(result.success){
-                const img = result.data.url;
-                const item = {
-                    name: data.name,
-                    email: data.email,
-                    specialty: data.specialty,
-                    img: img
+            .then(res => res.json())
+            .then(result => {
+                if (result.success) {
+                    const img = result.data.url;
+                    const item = {
+                        name: data.name,
+                        email: data.email,
+                        specialty: data.specialty,
+                        img: img
+                    }
+                    fetch('https://thawing-depths-15200.herokuapp.com/item', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(item)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            if (inserted.insertedId) {
+                                toast.success('item added successfully')
+                                reset();
+                            }
+                            else {
+                                toast.error('Failed to add the item')
+                            }
+                        })
                 }
-                fetch('http://localhost:5000/item', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json',
-                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                    },
-                    body: JSON.stringify(item)
-                })
-                .then(res =>res.json())
-                .then(inserted =>{
-                    if(inserted.insertedId){
-                        toast.success('item added successfully')
-                        reset();
-                    }
-                    else{
-                        toast.error('Failed to add the item')
-                    }
-                })
-            }
-            
-        })
-        
+
+            })
+
     }
 
-    if(isLoading){
+    if (isLoading) {
         return <Loading></Loading>
     }
 
@@ -112,7 +112,7 @@ const AddProduct = () => {
                     <label className="label">
                         <span className="label-text">Specialty</span>
                     </label>
-                    <select {...register('specialty')} class="select input-bordered w-full max-w-xs">
+                    <select {...register('specialty')} className="select input-bordered w-full max-w-xs">
                         {
                             services.map(service => <option
                                 key={service._id}

@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = ({service}) => {
+const CheckoutForm = ({ service }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -10,10 +10,10 @@ const CheckoutForm = ({service}) => {
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
 
-    const {_id, price, email, displayName} = service;
+    const { _id, price, email, displayName } = service;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://thawing-depths-15200.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -30,15 +30,15 @@ const CheckoutForm = ({service}) => {
 
     }, [price]);
 
-    const handleSubmit = async (event) =>{
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        if(!stripe || !elements){
+        if (!stripe || !elements) {
             return;
         }
 
         const card = elements.getElement(CardElement);
 
-        if(card === null){
+        if (card === null) {
             return;
         }
 
@@ -46,54 +46,54 @@ const CheckoutForm = ({service}) => {
             type: 'card',
             card
         });
-           
-    
-            setCardError(error?.message || '');
-            setSuccess('');
-            setProcessing(true);
-    
-            // confirm card payment
-            const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
-                clientSecret,
-                {
-                    payment_method: {
-                        card: card,
-                        billing_details: {
-                            name: displayName,
-                            email: email
-                        },
+
+
+        setCardError(error?.message || '');
+        setSuccess('');
+        setProcessing(true);
+
+        // confirm card payment
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: displayName,
+                        email: email
                     },
                 },
-            );
+            },
+        );
 
-            if (intentError) {
-                setCardError(intentError?.message);
-                setProcessing(false);
+        if (intentError) {
+            setCardError(intentError?.message);
+            setProcessing(false);
+        }
+        else {
+            setCardError('');
+            setTransactionId(paymentIntent.id);
+            console.log(paymentIntent);
+            setSuccess('Congrats! Your payment is completed.');
+            //store payment on database
+            const payment = {
+                service: _id,
+                transactionId: paymentIntent.id
             }
-            else {
-                setCardError('');
-                setTransactionId(paymentIntent.id);
-                console.log(paymentIntent);
-                setSuccess('Congrats! Your payment is completed.');
-                //store payment on database
-                const payment = {
-                    service: _id,
-                    transactionId: paymentIntent.id
-                }
-                fetch(`http://localhost:5000/order/${_id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'content-type': 'application/json',
-                        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                    },
-                    body: JSON.stringify(payment)
-                }).then(res => res.json())
-                    .then(data => {
-                        setProcessing(false);
-                        console.log(data);
-                    })
-            }
-        
+            fetch(`https://thawing-depths-15200.herokuapp.com/order/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+            }).then(res => res.json())
+                .then(data => {
+                    setProcessing(false);
+                    console.log(data);
+                })
+        }
+
     }
     return (
         <>

@@ -4,22 +4,22 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const [quantity, setQuantity] = useState(1);
+    // const [quantity, setQuantity] = useState(1);
     const { _id, name, img, description, price} = service;
     const navigate = useNavigate();
 
-    const handleIncrement = () => {
-        if(quantity < 50){
-            setQuantity(prevCount => prevCount + 1);
-        }
+    // const handleIncrement = () => {
+    //     if(quantity < 50){
+    //         setQuantity(prevCount => prevCount + 1);
+    //     }
                
-    }
+    // }
 
-    const handleDecrement = () => {
-        if(quantity > 5)
-        setQuantity(prevCount => prevCount - 1);
-        
-    }
+    // const handleDecrement = () => {
+    //     if(quantity > 5){
+    //     setQuantity(prevCount => prevCount - 1);
+    //     }
+    // }
 
     const navigateToServiceDetail = () =>{
         navigate(`/purchase`);
@@ -33,11 +33,12 @@ const Service = ({ service }) => {
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{service.name}</h2>
                 <h3>{service.description}</h3>
-                <h5>Price: {service.price}/pcs</h5>
-                <h3>Available: {service.available}</h3>
-                <h4>Quantity: {quantity}</h4>
-                <p ><FontAwesomeIcon onClick={handleIncrement} icon={faPlus}></FontAwesomeIcon>
-                <FontAwesomeIcon onClick={handleDecrement} className=' pl-3' icon={faMinus}></FontAwesomeIcon></p>
+                <h5><span className='font-bold'>Price:</span> {service.price}/pcs</h5>
+                <h3><span className='font-bold'>Available:</span>  {service.available}</h3>
+                <h4><span className='font-bold'>Miniquantity:</span>  {service.miniquantity}</h4>
+                <h4><span className='font-bold'>Maxquantity:</span>  {service.maxquantity}</h4>
+                {/* <p ><FontAwesomeIcon onClick={handleIncrement} icon={faPlus}></FontAwesomeIcon>
+                <FontAwesomeIcon onClick={handleDecrement} className=' pl-3' icon={faMinus}></FontAwesomeIcon></p> */}
                 
 
                 <div className="card-actions">

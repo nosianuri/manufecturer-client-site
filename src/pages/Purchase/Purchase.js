@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useServiceDetail from '../../hooks/userServiceDetail';
 import { toast } from 'react-toastify';
 
-const Purchase = ({Purchase, setPurchase}) => {
-    // const { name, description, quantity, price} = Purchase;
+const Purchase = ({ setPurchase }) => {
+    const [quantity, setQuantity] = useState(1);
     const { serviceId } = useParams();
     const [service, setService] = useServiceDetail(serviceId);
     const [user, loading, error] = useAuthState(auth);
     if (user) {
         console.log(user);
+    }
+
+    const handleIncrement = () => {
+        if (quantity < 50) {
+            setQuantity(prevCount => prevCount + 1);
+        }
+
+    }
+
+    const handleDecrement = () => {
+        if (quantity > 5){
+            setQuantity(prevCount => prevCount - 1);
+        }
     }
 
     const handlePlaceOrder = event => {
@@ -21,7 +36,6 @@ const Purchase = ({Purchase, setPurchase}) => {
             email: user.email,
             service: service.name,
             serviceId: serviceId,
-            
             address: event.target.address.value,
             phone: event.target.phone.value
         }
@@ -47,7 +61,6 @@ const Purchase = ({Purchase, setPurchase}) => {
 
     return (
         <div>
-            <h2 className="text-2xl text-center">Please Order: {serviceId}</h2>
             <form onSubmit={handlePlaceOrder} >
                 <div className="hero min-h-screen">
 
@@ -56,6 +69,9 @@ const Purchase = ({Purchase, setPurchase}) => {
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                             <div className="card-body">
+                                <label className='text-3xl text-primary font-bold my-2'>
+                                    Please Order
+                                </label>
                                 <div className="form-control">
 
                                     <input className='w-100 mb-2' type="text" value={user?.displayName} name='name' placeholder='name' required readOnly disabled />
@@ -66,7 +82,12 @@ const Purchase = ({Purchase, setPurchase}) => {
                                 </div>
                                 <div className="form-control">
 
-                                    <input className='w-100 mb-2' type="text" value={service} name='service' placeholder='service' required readOnly />
+                                    <input className='w-100 mb-2' type="text" name='service' placeholder='service' />
+                                </div>
+                                <div>
+                                <h4>Quantity: {quantity}</h4>
+                                    <p ><FontAwesomeIcon onClick={handleIncrement} icon={faPlus}></FontAwesomeIcon>
+                                        <FontAwesomeIcon onClick={handleDecrement} className=' pl-3' icon={faMinus}></FontAwesomeIcon></p>
                                 </div>
                                 <div className="form-control">
 

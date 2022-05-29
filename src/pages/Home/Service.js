@@ -21,7 +21,7 @@ const Service = ({ service }) => {
         
     }
 
-    const navigateToServiceDetail = id =>{
+    const navigateToServiceDetail = () =>{
         navigate(`/purchase`);
     }
 

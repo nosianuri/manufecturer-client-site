@@ -3,7 +3,7 @@ import Purchase from '../Purchase/Purchase';
 import Service from './Service';
 
 const Services = () => {
-    const [purchase, setPurchase] = useState(null);
+    const [purchase, setPurchase] = useState();
     const [products, setProducts] = useState([]);
 
 

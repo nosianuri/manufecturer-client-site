@@ -1,3 +1,17 @@
+# website name
+Subaru MF
+
+# website live link
+https://manufacturer-website-cli-89214.web.app/
+
+# Manufacturer website
+Purchase on home page with requireAuth.\
+Manage all item by admin\
+use Node.js in backend.\
+user simply find their product\
+Adjust payment method with mailgun
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

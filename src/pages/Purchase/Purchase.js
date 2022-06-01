@@ -8,7 +8,7 @@ import useServiceDetail from '../../hooks/userServiceDetail';
 import { toast } from 'react-toastify';
 
 const Purchase = ({ setPurchase }) => {
-    const [quantity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(5);
     const { serviceId } = useParams();
     const [service, setService] = useServiceDetail(serviceId);
     const [user, loading, error] = useAuthState(auth);

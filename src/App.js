@@ -21,9 +21,15 @@ import RequireAdmin from './pages/Login/RequireAdmin';
 import AddProduct from './pages/Dashboard/AddProduct';
 import ManageOrder from './pages/Dashboard/ManageOrder';
 import ManageProduct from './pages/Dashboard/ManageProduct';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div>
       <Navbar></Navbar>

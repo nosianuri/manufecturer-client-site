@@ -8,9 +8,9 @@ const Banner = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img width={550} src={camera} alt="banner" />
                 <div>
-                    <h1 className="text-6xl font-bold uppercase">Premium Equipment</h1>
-                    <p className="py-6 text-3xl text-bold">Get your driver from your camera manufacturer website exercitationem quasi. Update your camera driver automatically.</p>
-                    <FigureButton>Get started</FigureButton>
+                    <h1 data-aos='fade-right' data-aos-delay='200' data-aos-duration='1000' className="text-6xl font-bold uppercase">Premium Equipment</h1>
+                    <p data-aos='fade-right' data-aos-delay='400' data-aos-duration='900' className="py-6 text-3xl text-bold">Get your driver from your camera manufacturer website exercitationem quasi. Update your camera driver automatically.</p>
+                    <FigureButton  data-aos-delay='1300' data-aos='zoom-in' >Get started</FigureButton>
                 </div>
             </div>
         </div>
